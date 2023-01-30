@@ -73,7 +73,7 @@ answers = Answer.create([
   { body: 'Способность функции во время создания запоминать ссылки на переменные и параметры, находящиеся в текущей области видимости', correct: false, question_id: questions[8].id },
 ])
 
-users_tests = UserTest.create([
+tests_users = TestsUser.create([
   { user_id: users[0].id, test_id: tests[0].id},
   { user_id: users[0].id, test_id: tests[3].id},
   { user_id: users[0].id, test_id: tests[6].id},
