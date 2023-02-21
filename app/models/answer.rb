@@ -7,6 +7,7 @@ class Answer < ApplicationRecord
   validate :validate_answers_count, on: :create
 
   private
+  
   def validate_answers_count
     errors.add(:question, "Can't create more than 4 answers") if question.answers.count > 4
   end
