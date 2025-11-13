@@ -9,6 +9,6 @@ class Answer < ApplicationRecord
   private
   
   def validate_answers_count
-    errors.add(:question, "Can't create more than 4 answers") if question.answers.count > 4
+    errors.add(:question, "Can't create more than 4 answers") if question.present? && question.answers.count >= 4
   end
 end
