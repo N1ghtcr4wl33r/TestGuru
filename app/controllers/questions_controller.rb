@@ -1,33 +1,39 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: %i[show destroy]
-  before_action :find_test, only: %i[index create]
+  before_action :find_question, only: %i[show edit destroy update]
+  before_action :find_test, only: %i[index new create]
 
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  #rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    questions = @test.questions.pluck(:body)
-    render plain: questions.join("\n")
-  end
+  def index; end
 
-  def show
-    render plain: "#{@question.body}"
-  end
+  def show; end
 
   def new
+    @question = Question.new
   end
 
+  def edit; end
+
   def create
-    question = @test.questions.build(question_params)
-    if question.save
-      render plain: 'Question successfully created'
+    @question = @test.questions.new(question_params)
+    if @question.save
+      redirect_to @question.test
     else
-      render plain: 'Question was not created due to incorrect input form'
+      render :new
+    end
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question.test
+    else
+      render :edit
     end
   end
 
   def destroy
     @question.destroy
-    render plain: 'Question deleted'
+    redirect_to @question.test
   end
 
   private

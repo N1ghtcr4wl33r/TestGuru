@@ -1,0 +1,13 @@
+<%= form_with model: [@question, @answer], local: true do |form| %>
+  <%= render 'shared/errors', resource: @answer %>
+  <div>
+    <%= form.label :body %>
+    <%= form.text_field :body, id: :answer_body %>
+  </div>
+  <div>
+    <%= form.label :correct, "This answer is correct?" %>
+    <%= form.select :correct, [:true, :false] %>
+  </div>
+
+  <p><%= form.submit %></p>
+<% end %>

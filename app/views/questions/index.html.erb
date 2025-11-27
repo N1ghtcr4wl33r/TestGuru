@@ -1,0 +1,16 @@
+<p> 
+  <strong>Questions for test:</strong>
+  <%= @test.title %>
+</p>
+<table>
+  <tr>
+    <th>Question</th>
+  </tr>
+  <%= render @test.questions %>
+</table>
+<p>
+<%= link_to 'Create new question', new_test_question_path %>
+</p>
+<p>
+<%= link_to 'Back', test_path(@test) %>
+</p>

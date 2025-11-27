@@ -13,22 +13,22 @@ categories = Category.create([
   { title: 'Mobile app development'}
 ])
 
-tests = Test.create([
-  { title: 'Ruby basic', level: 1, category_id: categories[0].id },
-  { title: 'HTML basic', level: 1, category_id: categories[1].id },
-  { title: 'JavaScript basic', level: 1, category_id: categories[2].id },
-  { title: 'Ruby advanced', level: 3, category_id: categories[0].id },
-  { title: 'HTML advanced', level: 3, category_id: categories[1].id },
-  { title: 'JavaScript advanced', level: 3, category_id: categories[2].id },
-  { title: 'Ruby professional', level: 5, category_id: categories[0].id },
-  { title: 'HTML professional', level: 5, category_id: categories[1].id },
-  { title: 'JavaScript professional', level: 5, category_id: categories[2].id },
-])
-
 users = User.create([
   { name: 'Jake', email: "jake1@gmail.com" },
   { name: 'Fry', email: "fry2@gmail.com" },
   { name: 'Diana', email: "diana3@gmail.com" },
+])
+
+tests = Test.create([
+  { title: 'Ruby basic', level: 1, category_id: categories[0].id, author_id: users[0].id },
+  { title: 'HTML basic', level: 1, category_id: categories[1].id, author_id: users[0].id },
+  { title: 'JavaScript basic', level: 1, category_id: categories[2].id, author_id: users[0].id },
+  { title: 'Ruby advanced', level: 3, category_id: categories[0].id, author_id: users[0].id },
+  { title: 'HTML advanced', level: 3, category_id: categories[1].id, author_id: users[0].id },
+  { title: 'JavaScript advanced', level: 3, category_id: categories[2].id, author_id: users[0].id },
+  { title: 'Ruby professional', level: 5, category_id: categories[0].id, author_id: users[0].id },
+  { title: 'HTML professional', level: 5, category_id: categories[1].id, author_id: users[0].id },
+  { title: 'JavaScript professional', level: 5, category_id: categories[2].id, author_id: users[0].id },
 ])
 
 questions = Question.create([

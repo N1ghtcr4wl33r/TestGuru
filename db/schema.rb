@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2023_02_21_124618) do
     t.string "email", null: false
   end
 
+  add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
   add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
