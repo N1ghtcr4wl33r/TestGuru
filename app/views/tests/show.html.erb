@@ -1,0 +1,23 @@
+<p> 
+  <strong>Test with title:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Level of this test is:</strong>
+  <%= @test.level %>
+</p>
+
+<p>
+  <strong>Questions of this test :</strong>
+  <%= @test.questions.pluck(:body).join("; ") %>
+</p>
+<p>
+<%= link_to 'Edit', edit_test_path(@test) %>
+</p>
+<p>
+<%= link_to 'Questions', test_questions_path(@test) %>
+</p>
+<p>
+<%= link_to 'Back', tests_path %>
+</p>
